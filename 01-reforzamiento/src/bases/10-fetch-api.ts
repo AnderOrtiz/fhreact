@@ -6,7 +6,7 @@ const myRequest = fetch(
     `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`
 );
 
-const createImageInsideDOM = async(url:string) => {
+const createImageInsideDOM = (url:string) => {
     const imgElement = document.createElement('img');
         imgElement.src = url;
 
@@ -16,9 +16,9 @@ const createImageInsideDOM = async(url:string) => {
 
 myRequest
     .then((response) => response.json())
-    .then(async({data}:GifphyRandomResponse) => {
+    .then(({data}:GifphyRandomResponse) => {
         const imageUrl = data.images.original.url;
-        await createImageInsideDOM(imageUrl)
+        createImageInsideDOM(imageUrl)
     })
     .catch((err) => {
         console.error(err);
