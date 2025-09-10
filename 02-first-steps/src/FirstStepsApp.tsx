@@ -1,15 +1,12 @@
+import { ItemCounter } from "./shopping-cart/ItemCounter"
 
 export const FirstStepsApp = () => {
     return (
         <>
-            <h1>Hello world!!!</h1>
-            <p>Esto es un parrafo</p>
-
-            <button>Click me</button>
-
-            <div>
-                <h2>Hola dentro de un div</h2>
-            </div>
+            <h1>Carrito de compras</h1>
+            <ItemCounter name='Pro controller' quantity={2} />
+            <ItemCounter name='Nintendo Switch' quantity={4} />
+            <ItemCounter name='8 bit-do' quantity={7} />
         </>
     )
 }
