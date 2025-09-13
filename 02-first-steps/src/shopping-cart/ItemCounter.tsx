@@ -1,16 +1,25 @@
 // shortcut: rafc
 
+import { useState } from "react";
+
 interface Props {
     name: string;
     quantity?: number;
 
 }
 
-export const ItemCounter = ({ name, quantity }: Props) => {
+export const ItemCounter = ({ name, quantity = 1 }: Props) => {
 
-    const hadleClick = () => {
-        console.log(`Click en ${name}`)
-    }
+    const [count, setCount] = useState(quantity);
+
+    const handleAdd = () => { setCount(count + 1)},
+        handleSubtract = () => { 
+            if (count === 1) return;    
+            setCount(count - 1)
+        };
+
+
+    
 
     return (
         <section
@@ -29,10 +38,12 @@ export const ItemCounter = ({ name, quantity }: Props) => {
                 {name}
             </span>
             <button
-                onClick= {hadleClick}
+                onClick={handleSubtract}
             >-1</button>
-            <span>{quantity}</span>
-            <button>+1</button>
+            <span>{count}</span>
+            <button
+                onClick={handleAdd}
+            >+1</button>
         </section>
     )
 };
