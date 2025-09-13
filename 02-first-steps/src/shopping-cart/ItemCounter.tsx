@@ -7,6 +7,11 @@ interface Props {
 }
 
 export const ItemCounter = ({ name, quantity }: Props) => {
+
+    const hadleClick = () => {
+        console.log(`Click en ${name}`)
+    }
+
     return (
         <section
             style={{
@@ -23,7 +28,9 @@ export const ItemCounter = ({ name, quantity }: Props) => {
             >
                 {name}
             </span>
-            <button>-1</button>
+            <button
+                onClick= {hadleClick}
+            >-1</button>
             <span>{quantity}</span>
             <button>+1</button>
         </section>
