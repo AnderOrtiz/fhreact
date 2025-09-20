@@ -19,7 +19,7 @@ describe('MyAwesomeApp', () => {
 
 
     test('should render first name y lastname', () => {
-        render(<MyAwasomeApp/>)
+        render(<MyAwasomeApp />)
         screen.debug();
 
         // const h1 = screen.getByRole('heading', {
@@ -30,11 +30,22 @@ describe('MyAwesomeApp', () => {
 
         expect(h1.innerHTML).toContain('Ander');
 
+    });
+
+
+    test('should match snapshot', () => {
+        const { container } = render(<MyAwasomeApp />);
+        expect(container).toMatchSnapshot();
+    })
+
+    test('should match snapshot', () => {
+        render(<MyAwasomeApp />);
+        expect(screen.getByTestId('div-app')).toMatchSnapshot();
     })
 })
 
 
 /**Se recomineda usar conteiner para manipulaciónes iniciales sin evento
- * pero es recomendable adaptarse a usar screem
+ * pero es recomendable adaptarse a usar screen
  * 
  */
