@@ -19,7 +19,7 @@ const firtName = 'Ander',
 export function MyAwasomeApp() {
     return (
         <>
-            <h1>{firtName}</h1>
+            <h1 data-testid="first-name-title" >{firtName}</h1>
             <h3>{lastName}</h3>
 
             <p>{favoriteGames.join(', ')}</p>
