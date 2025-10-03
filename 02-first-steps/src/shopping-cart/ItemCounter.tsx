@@ -17,14 +17,11 @@ export const ItemCounter = ({ name, quantity = 1 }: Props) => {
 
     const [count, setCount] = useState(quantity);
 
-    const handleAdd = () => { setCount(count + 1)},
-        handleSubtract = () => { 
-            if (count === 1) return;    
+    const handleAdd = () => { setCount(count + 1) },
+        handleSubtract = () => {
+            if (count === 1) return;
             setCount(count - 1)
         };
-
-
-    
 
     return (
         <section
@@ -34,7 +31,7 @@ export const ItemCounter = ({ name, quantity = 1 }: Props) => {
             <span
                 className={styles['item-text']}
                 style={{
-                    color: count ===1? 'red': 'black',
+                    color: count === 1 ? 'red' : 'black',
                 }}
             >
                 {name}
