@@ -41,7 +41,7 @@ describe('FirstStepApp', () => {
         render(<FirstStepsApp />)
         const itemcounters = screen.getAllByTestId('ItemCounter');
 
-        console.log(itemcounters.length);
+        // console.log(itemcounters.length);
 
         expect(itemcounters.length).toBe(3);
         // screen.debug();

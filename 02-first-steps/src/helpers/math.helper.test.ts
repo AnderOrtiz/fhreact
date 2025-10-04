@@ -57,3 +57,13 @@ describe('multiply', () => {
     })
 })
 
+describe('divide', () => {
+    test('should DIVIDE 2 positive numbers', () => {
+        const a = 2,
+            b = 4;
+
+        const result = divide(a, b)
+
+        expect(result).toBe(a / b)
+    })
+})
