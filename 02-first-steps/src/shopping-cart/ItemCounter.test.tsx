@@ -1,8 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import { ItemCounter } from "./ItemCounter";
-import { subtract } from '../helpers/math.helper';
-
 
 
 describe('ItemCounter', () => {
