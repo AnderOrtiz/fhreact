@@ -10,8 +10,14 @@ const GifsApp = () => {
     const [previousTerms, setPreviousTerms] = useState(['Goku', 'Natsu', 'Ichigo', 'Spike'])
 
     const handelTermClicked = (term: string) => {
-        console.log({term});
-        
+        console.log({ term });
+
+    }
+
+
+    const handelSearch = (query: string) => {
+        console.log({ query });
+
     }
 
 
@@ -22,7 +28,7 @@ const GifsApp = () => {
 
             {/* search */}
             {/* SearchBar */}
-            <SearchBar className={"search-container"} placeHolder={"Buscar gifs"} btnDescription={"Buscar"} />
+            <SearchBar className={"search-container"} placeHolder={"Buscar gifs"} btnDescription={"Buscar"} onQuery={handelSearch} />
 
             {/* Búsquedas previas */}
             {/* PreviousSearches */}
@@ -31,7 +37,7 @@ const GifsApp = () => {
 
             {/* Gifs */}
 
-            <GifLIst gifs={mockGifs}/>
+            <GifLIst gifs={mockGifs} />
 
 
             {/* <div className="gifs-container">
