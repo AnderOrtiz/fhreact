@@ -3,8 +3,18 @@ import PreviousSearches from "./gifs/components/PreviousSearches"
 import { mockGifs } from "./mock-data/gifs.mock"
 import CustomHeader from "./shared/components/CustomHeades"
 import SearchBar from "./shared/components/SearchBar"
+import { useState } from 'react';
 
 const GifsApp = () => {
+
+    const [previousTerms, setPreviousTerms] = useState(['Goku', 'Natsu', 'Ichigo', 'Spike'])
+
+    const handelTermClicked = (term: string) => {
+        console.log({term});
+        
+    }
+
+
     return (
         <>
             {/* CustomHeader */}
@@ -17,7 +27,7 @@ const GifsApp = () => {
             {/* Búsquedas previas */}
             {/* PreviousSearches */}
 
-            <PreviousSearches className={"previous-searches"} title={"Búsquedas previas"} ulClassName={"previous-searches-list"} searches={['Goku', 'Natsu', 'Ichigo', 'Spike']} />
+            <PreviousSearches className={"previous-searches"} title={"Búsquedas previas"} ulClassName={"previous-searches-list"} searches={previousTerms} onLabelClicked={handelTermClicked} />
 
             {/* Gifs */}
 
