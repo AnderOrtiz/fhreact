@@ -17,15 +17,13 @@ const SearchBar = ({ className, inputType, placeHolder = 'Buscar', btnDescriptio
     const [query, setQuery] = useState('');
 
     useEffect(() => {
-        // if (query != '') {
         const timeoutId = setTimeout(() => {
-            onQuery(query);
+            onQuery(query.toLocaleLowerCase().trim());
         }, 700)
 
         return () => {
             clearTimeout(timeoutId);
         }
-        // }
     }, [query, onQuery])
 
 

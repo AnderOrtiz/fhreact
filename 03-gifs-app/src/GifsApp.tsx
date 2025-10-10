@@ -11,29 +11,47 @@ const GifsApp = () => {
 
     const handelTermClicked = (term: string) => {
         console.log({ term });
-
     }
 
 
-    const handelSearch = (query: string) => {
-        console.log({ query });
+    const handelSearch = (query: string = '') => {
+        query = query.trim().toLocaleLowerCase();
 
-    }
+        if (query.length === 0) return;
+
+        if (previousTerms.includes(query)) return;
+
+        setPreviousTerms([query, ...previousTerms].splice(0, 8));
+    };
 
 
     return (
         <>
             {/* CustomHeader */}
-            <CustomHeader title="Buscador de Gifs" description="Descubre y comparte el Gif perfecto" />
+            <CustomHeader
+                title="Buscador de Gifs"
+                description="Descubre y comparte el Gif perfecto"
+            />
 
             {/* search */}
             {/* SearchBar */}
-            <SearchBar className={"search-container"} placeHolder={"Buscar gifs"} btnDescription={"Buscar"} onQuery={handelSearch} />
+            <SearchBar
+                className={"search-container"}
+                placeHolder={"Buscar gifs"}
+                btnDescription={"Buscar"}
+                onQuery={handelSearch}
+            />
 
             {/* Búsquedas previas */}
             {/* PreviousSearches */}
 
-            <PreviousSearches className={"previous-searches"} title={"Búsquedas previas"} ulClassName={"previous-searches-list"} searches={previousTerms} onLabelClicked={handelTermClicked} />
+            <PreviousSearches
+                className={"previous-searches"}
+                title={"Búsquedas previas"}
+                ulClassName={"previous-searches-list"}
+                searches={previousTerms}
+                onLabelClicked={handelTermClicked}
+            />
 
             {/* Gifs */}
 
