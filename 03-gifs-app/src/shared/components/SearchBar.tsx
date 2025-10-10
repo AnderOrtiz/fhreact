@@ -1,6 +1,6 @@
 // shortcut rafc
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
     className: string;
@@ -15,6 +15,19 @@ interface Props {
 const SearchBar = ({ className, inputType, placeHolder = 'Buscar', btnDescription, onQuery }: Props) => {
 
     const [query, setQuery] = useState('');
+
+    useEffect(() => {
+        // if (query != '') {
+        const timeoutId = setTimeout(() => {
+            onQuery(query);
+        }, 700)
+
+        return () => {
+            clearTimeout(timeoutId);
+        }
+        // }
+    }, [query, onQuery])
+
 
     const handleSearch = () => {
         onQuery(query)
