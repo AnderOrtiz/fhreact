@@ -12,7 +12,7 @@ interface Props {
 }
 
 
-const SearchBar = ({ className, inputType, placeHolder = 'Buscar', btnDescription, onQuery }: Props) => {
+const SearchBar = ({ className, placeHolder = 'Buscar', btnDescription, onQuery }: Props) => {
 
     const [query, setQuery] = useState('');
     
@@ -41,7 +41,7 @@ const SearchBar = ({ className, inputType, placeHolder = 'Buscar', btnDescriptio
     return (
         <div className={className}>
             <input
-                type={inputType = 'text'}
+                type="text"
                 placeholder={placeHolder}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
