@@ -1,3 +1,4 @@
+import { getGifsByQuery } from "./gifs/actions/get-gifs-by-query.action"
 import GifLIst from "./gifs/components/GifList"
 import PreviousSearches from "./gifs/components/PreviousSearches"
 import { mockGifs } from "./mock-data/gifs.mock"
@@ -14,7 +15,7 @@ const GifsApp = () => {
     }
 
 
-    const handelSearch = (query: string = '') => {
+    const handelSearch = async (query: string = '') => {
         query = query.trim().toLocaleLowerCase();
 
         if (query.length === 0) return;
@@ -22,6 +23,11 @@ const GifsApp = () => {
         if (previousTerms.includes(query)) return;
 
         setPreviousTerms([query, ...previousTerms].splice(0, 8));
+
+        const gifs = await getGifsByQuery(query);
+
+        console.log(gifs);
+        
     };
 
 
