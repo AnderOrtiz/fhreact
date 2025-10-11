@@ -1,18 +1,17 @@
-import axios from 'axios';
-import type { GiphyResponse } from '../interfaces/giphy.response';
+import { giphyApi } from '../api/giphy.api';
+
 import type { Gif } from '../interfaces/gif.interface';
+import type { GiphyResponse } from '../interfaces/giphy.response';
 
 export const getGifsByQuery = async (query: string): Promise<Gif[]> => {
 
-    const response = await axios.get<GiphyResponse>('https://api.giphy.com/v1/gifs/search', {
+    const response = await giphyApi<GiphyResponse>('/search', {
         params: {
             q: query,
             limit: 10,
-            lang: 'es',
-            api_key: 'PiaqfidnwvfWdjkl4BQ7DBGxuigxVGg6',
         }
     })
-    
+
     return response.data.data.map((gif) => ({
         id: gif.id,
         title: gif.title,
@@ -20,6 +19,6 @@ export const getGifsByQuery = async (query: string): Promise<Gif[]> => {
         width: Number(gif.images.original.width),
         height: Number(gif.images.original.height),
     }));
-    
+
     // fetch(`https://api.giphy.com/v1/gifs/search?api_key=PiaqfidnwvfWdjkl4BQ7DBGxuigxVGg6&q=${query}&limit=10&lang=es`);
 };

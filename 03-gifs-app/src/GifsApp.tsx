@@ -1,14 +1,17 @@
 import { getGifsByQuery } from "./gifs/actions/get-gifs-by-query.action"
 import GifLIst from "./gifs/components/GifList"
 import PreviousSearches from "./gifs/components/PreviousSearches"
-import { mockGifs } from "./mock-data/gifs.mock"
+import type { Gif } from "./gifs/interfaces/gif.interface"
 import CustomHeader from "./shared/components/CustomHeades"
 import SearchBar from "./shared/components/SearchBar"
 import { useState } from 'react';
 
 const GifsApp = () => {
 
-    const [previousTerms, setPreviousTerms] = useState(['Goku', 'Natsu', 'Ichigo', 'Spike'])
+    const [previousTerms, setPreviousTerms] = useState<string[]>([])
+
+    const [gifs, setGifs] = useState<Gif[]>([])
+
 
     const handelTermClicked = (term: string) => {
         console.log({ term });
@@ -27,8 +30,12 @@ const GifsApp = () => {
         const gifs = await getGifsByQuery(query);
 
         console.log(gifs);
-        
+
+
+        setGifs(gifs)
     };
+
+
 
 
     return (
@@ -61,7 +68,8 @@ const GifsApp = () => {
 
             {/* Gifs */}
 
-            <GifLIst gifs={mockGifs} />
+
+            <GifLIst gifs={gifs} />
 
 
             {/* <div className="gifs-container">

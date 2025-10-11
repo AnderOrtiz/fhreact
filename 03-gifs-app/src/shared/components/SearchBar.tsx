@@ -15,10 +15,10 @@ interface Props {
 const SearchBar = ({ className, inputType, placeHolder = 'Buscar', btnDescription, onQuery }: Props) => {
 
     const [query, setQuery] = useState('');
-
+    
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            onQuery(query.toLocaleLowerCase().trim());
+            onQuery(query);
         }, 700)
 
         return () => {
