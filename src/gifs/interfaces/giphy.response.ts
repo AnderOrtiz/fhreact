@@ -100,14 +100,16 @@ export interface Looping {
     mp4?: string;
 }
 
-export enum Rating {
-    G = "g",
-    PG = "pg",
-}
+export type Rating = "g" | "pg";
+// export enum Rating {
+//     G = "g",
+//     PG = "pg",
+// }
 
-export enum Type {
-    GIF = "gif",
-}
+export type Type = "gif";
+// export enum Type {
+//     GIF = "gif",
+// }
 
 export interface User {
     avatar_url: string;
