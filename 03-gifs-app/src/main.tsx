@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-// import GifsApp from './GifsApp'
-import MycounterApp from './counter/components/MycounterApp'
+import GifsApp from './GifsApp'
+// import MycounterApp from './counter/components/MycounterApp'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MycounterApp/>
-    {/* <GifsApp /> */}
+    {/* <MycounterApp/> */}
+    <GifsApp />
   </StrictMode>,
 )
