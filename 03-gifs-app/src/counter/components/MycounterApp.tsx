@@ -17,6 +17,3 @@ const MycounterApp = () => {
 }
 
 export default MycounterApp
-
-
-
