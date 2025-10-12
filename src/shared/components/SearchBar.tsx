@@ -41,7 +41,7 @@ const SearchBar = ({ className, placeHolder = 'Buscar', btnDescription, onQuery 
     return (
         <div className={className}>
             <input
-                type="text"
+                type='text'
                 placeholder={placeHolder}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}

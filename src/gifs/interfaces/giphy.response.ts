@@ -101,15 +101,8 @@ export interface Looping {
 }
 
 export type Rating = "g" | "pg";
-// export enum Rating {
-//     G = "g",
-//     PG = "pg",
-// }
 
 export type Type = "gif";
-// export enum Type {
-//     GIF = "gif",
-// }
 
 export interface User {
     avatar_url: string;
