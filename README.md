@@ -1,6 +1,6 @@
 # GIFs App — React + TypeScript + Giphy API
 
-🔗 **Proyecto desplegado en Netlify:**  
+**Proyecto desplegado en Netlify:**  
 https://app.netlify.com/projects/gifs-app-ander-ortiz/overview
 
 Esta es una aplicación web desarrollada con **React** y **TypeScript** que permite buscar y visualizar GIFs utilizando la API de **Giphy**.  
@@ -13,7 +13,7 @@ Está pensada como un proyecto simple, rápido y divertido que demuestra integra
 - **Búsqueda de GIFs en tiempo real**
 - **Componentes reutilizables** con React
 - **TypeScript** para tipado seguro
-- **Fetch API** para consumir Giphy
+- **Axios** para consumir la API de Giphy
 - Arquitectura limpia y organizada
 - Resultados en forma de *grid* responsive
 - Manejo de loading states  
@@ -21,9 +21,10 @@ Está pensada como un proyecto simple, rápido y divertido que demuestra integra
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **React 18**
 - **TypeScript**
 - **Vite** 
+- **Axios**
 - **Giphy API**
