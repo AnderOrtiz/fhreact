@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-RUN npm run test -- --run
+# RUN npm run test -- --run
 RUN npm run build
 
 

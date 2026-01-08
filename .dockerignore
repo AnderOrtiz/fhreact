@@ -3,4 +3,6 @@ docker-compose.yml
 .git
 node_modules/
 docker-compose.prod.yml
+docker-compose.dev.yml
+docker-compose.yml
 dist
