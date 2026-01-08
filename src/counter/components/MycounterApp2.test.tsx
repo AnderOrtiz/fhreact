@@ -11,8 +11,8 @@ vi.mock('../hooks/useCounter', () => ({
     default: () => ({
         counter: 40,
         handleAdd: handleAddMock,
-        handleSubtract: handleResetMock,
-        handleReset: handleSubtractMock,
+        handleSubtract: handleSubtractMock,
+        handleReset: handleResetMock,
         // El fn sirver para ver información de la ejecución
     }),
 }));
