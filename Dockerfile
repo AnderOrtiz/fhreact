@@ -11,11 +11,11 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-RUN npm run test
+RUN npm run test -- --run
 RUN npm run build
 
 
-FROM --platform=$BUILDPLATFORM nginx:1.29-alpine AS prod
+FROM nginx:1.29-alpine AS prod
 COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
 # COPY assets/ /usr/share/nginx/html/assets
