@@ -10,7 +10,7 @@ describe('giphyApi', () => {
         expect(giphyApi.defaults.baseURL).toBe('https://api.giphy.com/v1/gifs')
 
         expect(params.lang).toBe('es');
-        expect(params.api_key).toBe(import.meta.env.VITE_GIPHY_API_KEY)
+        expect(params.api_key).toBe(import.meta.env.VITE_GIPHY_API_KEY) // import.meta.env.VITE_GIHY_API_KEY
 
         //tobe se utiliza para evaluar strings
         //toStrictEqual se usa para evaluar objetos.
@@ -18,7 +18,7 @@ describe('giphyApi', () => {
         expect(params).toStrictEqual(
             {
                 lang: 'es',
-                api_key: import.meta.env.VITE_GIHY_API_KEY,
+                api_key: import.meta.env.VITE_GIPHY_API_KEY,
             }
         );
     });
