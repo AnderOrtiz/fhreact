@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+
+    container_name: gifs-app-dev
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    ports:
+      - 5173:5173
+
+    environment:
+      VITE_GIPHY_API_KEY: ${VITE_GIPHY_API_KEY}
+
+#docker compose -f docker-compose.dev.yml up --build

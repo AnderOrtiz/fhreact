@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      target: prod
+
+    container_name: gifs-app-prod
+
+    ports:
+      - 80:80

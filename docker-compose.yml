@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      target: ${STAGE}
+      dockerfile: Dockerfile
+    
+    volumes:
+      - .:/app/
+      - /app/node_modules
+
+    container_name: gifs-app
+    ports:
+      - ${PORT}:${PORT}
+
+    environment:
+      VITE_GIHY_API_KEY: ${VITE_GIPHY_API_KEY}
