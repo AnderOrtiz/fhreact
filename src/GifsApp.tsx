@@ -1,12 +1,12 @@
 import GifLIst from "./gifs/components/GifList"
 import PreviousSearches from "./gifs/components/PreviousSearches"
 import useGifs from "./gifs/hooks/useGifs"
-import CustomHeader from "./shared/components/CustomHeades"
+import CustomHeader from "./shared/components/CustomHeader"
 import SearchBar from "./shared/components/SearchBar"
 
 const GifsApp = () => {
 
-    const {previousTerms, gifs, handelTermClicked, handelSearch} = useGifs()
+    const { previousTerms, gifs, handelTermClicked, handelSearch } = useGifs()
 
     return (
         <>

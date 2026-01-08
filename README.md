@@ -1,30 +1,73 @@
-# GIFs App — React + TypeScript + Giphy API
+# React + TypeScript + Vite
 
-**Proyecto desplegado en Netlify:**  
-https://app.netlify.com/projects/gifs-app-ander-ortiz/overview
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Esta es una aplicación web desarrollada con **React** y **TypeScript** que permite buscar y visualizar GIFs utilizando la API de **Giphy**.  
-Está pensada como un proyecto simple, rápido y divertido que demuestra integración con APIs, manejo de componentes y gestión de estados.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Características
+## React Compiler
 
-- **Búsqueda de GIFs en tiempo real**
-- **Componentes reutilizables** con React
-- **TypeScript** para tipado seguro
-- **Axios** para consumir la API de Giphy
-- Arquitectura limpia y organizada
-- Resultados en forma de *grid* responsive
-- Manejo de loading states  
-- Guarda historiales de búsqueda
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
----
+## Expanding the ESLint configuration
 
-## Tecnologías utilizadas
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- **React 18**
-- **TypeScript**
-- **Vite** 
-- **Axios**
-- **Giphy API**
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

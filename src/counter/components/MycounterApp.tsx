@@ -1,8 +1,8 @@
 import useCounter from '../hooks/useCounter'
 
-const MycounterApp = () => {
+export const MycounterApp = () => {
 
-    const { counter, handleAdd, handleSubtract, handleReset } = useCounter(5)
+    const { counter, handleAdd, handleSubtract, handleReset } = useCounter()
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

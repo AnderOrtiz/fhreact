@@ -1,10 +1,9 @@
-name: Docker Image CI
-
+name: Docker CI - GifsApp
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "GifsApp" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "GifsApp" ]
 
 jobs:
 
@@ -19,7 +18,6 @@ jobs:
         fetch-depth: 0
 
     - name: Docker Login
-      if: github.ref == 'refs/heads/master'
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
