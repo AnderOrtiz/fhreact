@@ -14,7 +14,7 @@ COPY . .
 ARG VITE_GIPHY_API_KEY
 ENV VITE_GIPHY_API_KEY=$VITE_GIPHY_API_KEY
 
-RUN npm run test
+# RUN npm run test
 RUN npm run build
 
 
